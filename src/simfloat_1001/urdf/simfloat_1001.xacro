@@ -1,0 +1,120 @@
+<?xml version='1.0'?>
+
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find simfloat_1001)/urdf/simfloat_1001.gazebo" />
+  <link name="robot_footprint"></link>
+
+  <joint name="robot_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="robot_footprint"/>
+    <child link="chassis" />
+  </joint>
+
+   <joint type="fixed" name="antenna_joint">
+    <origin xyz="0 0 0.80" rpy="0 0 0"/>
+    <child link="antenna"/>
+    <parent link="chassis"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+  </joint>
+
+  <joint type="fixed" name="amodem_joint">
+    <origin xyz="0 0 -0.80" rpy="0 0 0"/>
+    <child link="amodem"/>
+    <parent link="chassis"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+  </joint>
+
+  <link name='chassis'>
+    <pose>0 0 0 0 0 0</pose>
+    <inertial>
+      <mass value="65.0"/>
+      <!--<density value="1000"/>-->
+      <origin xyz="0.0 0 0" rpy=" 0 0 1.5707"/>
+      <inertia
+          ixx="0.1" ixy="0" ixz="0"
+          iyy="0.1" iyz="0"
+          izz="0.1"
+      />
+    </inertial>
+
+    <collision name='collision'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/> 
+      <geometry>
+        <cylinder radius="0.15" length="1.3"/>
+      </geometry>
+    </collision>
+
+    <visual name='chassis_visual'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/>
+      <geometry>
+         <cylinder radius="0.15" length="1.3"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name='antenna'>
+    <inertial>
+      <mass value="1.0"/>
+      <!--<density value="500"/>-->
+      <origin xyz="0.0 0 0" rpy=" 0 0 1.5707"/>
+      <inertia
+          ixx="0.1" ixy="0" ixz="0"
+          iyy="0.1" iyz="0"
+          izz="0.1"
+      />
+    </inertial>
+    <visual name='antenna_visual'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.3"/>
+      </geometry>
+    </visual>
+
+     <collision name='antenna_collision'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/>
+      <geometry>
+        <cylinder radius="0.05" length="0.3"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name='amodem'>
+    <inertial>
+      <mass value="25.0"/>
+      <!--<density value="1000"/>-->
+      <origin xyz="0.0 0 0" rpy=" 0 0 1.5707"/>
+      <inertia
+          ixx="0.1" ixy="0" ixz="0"
+          iyy="0.1" iyz="0"
+          izz="0.1"
+      />
+    </inertial>
+
+    <visual name='amodem_visual'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.3"/>
+      </geometry>
+    </visual>
+
+     <collision name='amodem_collision'>
+      <origin xyz="0 0 0" rpy=" 0 0 1.5707"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.03"/>
+      </geometry>
+    </collision>
+  </link>
+
+   <!-- Include the sensor modules -->
+   <xacro:include filename="$(find robo_float_description)/urdf/sensors.xacro"/>
+  
+  <gazebo reference="chassis">
+    <material>Gazebo/Gray</material>
+  </gazebo>
+  <gazebo reference="amodem">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="antenna">
+    <material>Gazebo/Red</material>
+  </gazebo>
+</robot>
