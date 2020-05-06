@@ -12,6 +12,7 @@ based on simulation evironment developed in EU SWARM project
 
 Ubuntu 18.04
 ROS Melodic
+Gazebo 9
 
 ## development
 
