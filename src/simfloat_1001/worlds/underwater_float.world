@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <sdf version='1.6'>
   <world name='empty_underwater'>
     <physics name='default_physics' default='1' type='ode'>
@@ -210,10 +209,10 @@
     <atmosphere type='adiabatic'/>
     <wind/>
     <state world_name='empty_underwater'>
-      <sim_time>208 402000000</sim_time>
-      <real_time>208 965590487</real_time>
-      <wall_time>1587456297 227462127</wall_time>
-      <iterations>104201</iterations>
+      <sim_time>312 406000000</sim_time>
+      <real_time>104 353294599</real_time>
+      <wall_time>1588691267 44677960</wall_time>
+      <iterations>52002</iterations>
       <model name='ocean_box'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -224,16 +223,163 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='simfloat_1001'>
+        <pose frame=''>-0.03223 0.034974 -99.3 1e-06 -5e-06 -0.008894</pose>
+        <scale>1 1 1</scale>
+        <link name='robot_footprint'>
+          <pose frame=''>-0.03223 0.034974 -99.3 1e-06 -5e-06 -0.008894</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>1.50788 0.128958 0.871914 2.66385 -0.294838 -2.66377</acceleration>
+          <wrench>137.217 11.7352 79.3442 0 -0 0</wrench>
+        </link>
+      </model>
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>5.00094 -5.00094 1.9953 0 0.275643 2.3562</pose>
+        <pose frame=''>0.958591 -3.43068 -94.3681 -3e-06 1.55024 -1.73384</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='simfloat_1001'>
+      <link name='robot_footprint'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.210989 0 -0 0</pose>
+          <mass>91</mass>
+          <inertia>
+            <ixx>12.889</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>12.889</iyy>
+            <iyz>0</iyz>
+            <izz>0.3</izz>
+          </inertia>
+        </inertial>
+        <collision name='robot_footprint_fixed_joint_lump__collision_collision'>
+          <pose frame=''>0 0 0 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>1.3</length>
+              <radius>0.15</radius>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='robot_footprint_fixed_joint_lump__amodem_collision_collision_1'>
+          <pose frame=''>0 0 -0.8 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>0.03</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='robot_footprint_fixed_joint_lump__antenna_collision_collision_2'>
+          <pose frame=''>0 0 0.8 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>0.3</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='robot_footprint_fixed_joint_lump__chassis_visual_visual'>
+          <pose frame=''>0 0 0 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>1.3</length>
+              <radius>0.15</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Gray</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='robot_footprint_fixed_joint_lump__amodem_visual_visual_1'>
+          <pose frame=''>0 0 -0.8 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>0.3</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='robot_footprint_fixed_joint_lump__antenna_visual_visual_2'>
+          <pose frame=''>0 0 0.8 0 -0 1.5707</pose>
+          <geometry>
+            <cylinder>
+              <length>0.3</length>
+              <radius>0.05</radius>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>0</static>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>

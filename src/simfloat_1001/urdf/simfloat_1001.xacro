@@ -106,7 +106,7 @@
   </link>
 
    <!-- Include the sensor modules -->
-   <xacro:include filename="$(find robo_float_description)/urdf/sensors.xacro"/>
+   <!--<xacro:include filename="$(find robo_float_description)/urdf/sensors.xacro"/>-->
   
   <gazebo reference="chassis">
     <material>Gazebo/Gray</material>
